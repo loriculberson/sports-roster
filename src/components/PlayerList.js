@@ -1,15 +1,17 @@
 import Player from './Player'
 
 function PlayerList(props){
-  const { data } = props
-  const playerInfo = data.map((player, index) => {
+  const { data, addFav } = props
+  const playerInfo = data.map(player => {
     return (
         <Player 
-          key={index} 
+          id={player.id}
+          key={player.id} 
           firstName={player.firstName} 
           lastName={player.lastName} 
           jersey={player.jersey}
           hobbies={player.hobbies}
+          addFav={addFav}
         />
     )
   })

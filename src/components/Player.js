@@ -1,18 +1,17 @@
 function Player(props){
-  console.log('player prop', props)
-  // return <p>Hello {props.name}!</p>
-  // const playerHobbies = props.hobbies.map((hobby, index) => {
-  //   return <li key={index}>{hobby}</li>
-  // })
+  // console.log('player prop', props)
+
   const playerHobbies = props.hobbies.length
-            ? props.hobbies.map(hobby => {
-              return <li key={props.id}>{hobby}</li>
+            ? props.hobbies.map((hobby,index) => {
+              return <li key={index}>{hobby}</li>
             }) 
             : <p>None listed</p>
+            // console.log('id', props.id)
   return (
     <div>
       <h3>{props.firstName} {props.lastName}</h3>
       <ul>{playerHobbies}</ul>
+      <button onClick={() => props.addFav(props.id)}>Add Favorite</button>
     </div>
   )
 }
