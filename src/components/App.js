@@ -11,13 +11,14 @@ function App() {
   const [favorites, setFavorites] = useState([])
   // this is equivalent to const favorites = []
   function addFavorite(id){
-    console.log('hi', id)
-    // let foundPlayer = playerData.find( player => player.id === id)
-      const updateFavorites = [...favorites, id]
-      setFavorites(updateFavorites)
 
-    console.log('fav', favorites)
+    let foundPlayer = playerData.find( player => player.id === id)
+    console.log('found', foundPlayer)
+      const updateFavorites = favorites.slice()
+      updateFavorites.push(foundPlayer)
+      setFavorites([...updateFavorites])
   }
+
   return (  
     <div className="container">
       <Welcome />
@@ -25,7 +26,9 @@ function App() {
         data={playerData} 
         addFav={addFavorite}
       />
-      <Favorite />
+      <Favorite 
+        favPlayers={favorites}
+      />
     </div>
   );
 }
