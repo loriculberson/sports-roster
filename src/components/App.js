@@ -16,7 +16,7 @@ function App() {
     console.log('found', foundPlayer)
       const updateFavorites = favorites.slice()
       updateFavorites.push(foundPlayer)
-      setFavorites([...updateFavorites])
+      setFavorites(updateFavorites)
   }
 
   return (  
